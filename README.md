@@ -6,37 +6,19 @@ cabal init	Creates a new .cabal file interactively
 nix develop  Create a build shell to run cabal and ghc
 ---
 
- ┌───────────────────────────┐
- │         Developer         │
- │        (You write .hs)    │
- └───────────────┬───────────┘
-                 │
-                 ▼
- ┌─────────────────────────────────┐
- │           Nix Flake            │
- │        (flake.nix file)        │
- │  - Defines exact GHC version   │
- │  - Provides Cabal + libraries  │
- │  - Reproducible environment    │
- └───────────────┬────────────────┘
-                 │ `nix develop`
-                 ▼
-     Dev Shell with pinned tools
- ┌─────────────────────────────────┐
- │  Cabal (Build Tool)            │
- │  - Reads .cabal file           │
- │  - Resolves dependencies       │
- │  - Calls GHC to compile code   │
- └───────────────┬────────────────┘
-                 │ `cabal build`
-                 ▼
- ┌─────────────────────────────────┐
- │  GHC (Haskell Compiler)        │
- │  - Compiles .hs → Binary       │
- │  - Creates executable/library  │
- └─────────────────────────────────┘
+### 🔑 Summary Table
 
+| Component | Role |
+|----------|------|
+| **GHC** | Compiles Haskell code |
+| **Cabal** | Build + dependency manager |
+| **Nix Flakes** | Provides reproducible environment including GHC + Cabal |
 
+---
+
+### One-Line Summary
+
+> **Flake
 ---
 
 A Monad means:
