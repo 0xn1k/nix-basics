@@ -36,3 +36,10 @@ nix develop  Create a build shell to run cabal and ghc
  │  - Creates executable/library  │
  └─────────────────────────────────┘
 
+
+---
+
+A Monad means:
+
+✔ You can take a value from a Box
+✔ Apply a function that returns a Box again
