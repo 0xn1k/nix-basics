@@ -1,24 +1,23 @@
 {
-  description = "Simple Nix dev shell example";
+  description = "Minimal Haskell dev shell using Nix flakes";
 
   inputs = {
-    nixpkgs = {
-      url ="github:NixOS/nixpkgs";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      foo = 42;
-      attrBt = {
-        bar = "Hello, World!";
-        intx = 1;
-      };
-      devShells.${system}.default = pkgs.mkShell {
-        packages = [ pkgs.hello ];
-      };
-    };
+  outputs = { self, nixpkgs, flake-utils, ... }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+        hpkg = pkgs.haskellPackages;
+      in {
+        devShells.${system}.default = pkgs.mkShell {
+          buildInputs = [
+            hpkg.ghc
+            hpkg.cabal-install
+          ];
+        };
+      }
+    );
 }
