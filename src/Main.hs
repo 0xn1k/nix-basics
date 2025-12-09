@@ -7,4 +7,4 @@ import System.Environment (getArgs)
 main :: IO ()
 main = do
     args <- getArgs
-    putStrLn ("Hello from Nix-flake Haskell project! Args: " ++ show args)
+    putStrLn ("Hello from Nix-flake Haskell and the arguments are :  " ++ show args) 
