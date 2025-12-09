@@ -11,8 +11,9 @@
       let
         pkgs = import nixpkgs { inherit system; };
         hpkg = pkgs.haskellPackages;
-      in {
-        devShells.${system}.default = pkgs.mkShell {
+      in
+      {
+        devShell = pkgs.mkShell {
           buildInputs = [
             hpkg.ghc
             hpkg.cabal-install
