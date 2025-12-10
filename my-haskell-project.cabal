@@ -12,7 +12,9 @@ library
   exposed-modules:
   hs-source-dirs: src
   build-depends:
-      base >=4.14 && <5
+      base >=4.14 && <5,
+      array,
+      vector
   default-language: Haskell2010
 
 executable my-haskell-project-exe
@@ -20,5 +22,7 @@ executable my-haskell-project-exe
   hs-source-dirs: src
   ghc-options: -Wall -O2
   build-depends:
-      base >=4.14 && <5
+      base >=4.14 && <5,
+      array,
+      vector
   default-language: Haskell2010

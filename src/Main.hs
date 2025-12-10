@@ -1,5 +1,7 @@
 module Main where
 import Box
+import Data.Array
+import qualified Data.Vector as V
 
 
 import System.Environment (getArgs)
@@ -17,3 +19,12 @@ main = do
     putStrLn("Box after final computation: " ++ show final)
     putStrLn ("Final computed value: " ++ show finalPrint)
     putStrLn ("Boxed value after increment: " ++ show incrementedBox)
+    let v = V.fromList [1,2,3]
+    putStrLn ("Vector contents: " ++ show v)
+    let arr = array (1,3)
+              [ (1, "apple")
+              , (2, "banana")
+              , (3, "cherry")
+              ]
+    putStrLn ("Array contents: " ++ show (arr ! 2))
+
