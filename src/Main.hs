@@ -20,6 +20,11 @@ main = do
     putStrLn ("Final computed value: " ++ show finalPrint)
     putStrLn ("Boxed value after increment: " ++ show incrementedBox)
     let v = V.fromList [1,2,3]
+    let y = V.length v;
+    let x  = V.map (*2) v
+    putStrLn ("Vector after mapping (*2): " ++ show x)
+    putStrLn ("Vector length: " ++ show y)  
+
     putStrLn ("Vector contents: " ++ show v)
     let arr = array (1,3)
               [ (1, "apple")
