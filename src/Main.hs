@@ -2,6 +2,8 @@ module Main where
 import Box
 import Data.Array
 import qualified Data.Vector as V
+import  Transformer
+
 
 
 import System.Environment (getArgs)
@@ -32,4 +34,7 @@ main = do
               , (3, "cherry")
               ]
     putStrLn ("Array contents: " ++ show (arr ! 2))
+    runFoo -- Running the MaybeT IO example + take user input and calulate length
+
+
 
